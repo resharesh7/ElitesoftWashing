@@ -1,0 +1,2145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smithen Elite Soft Washing LLC</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0a1628;
+    --deep-blue: #0d2044;
+    --mid-blue: #1a3a6e;
+    --gold: #c9a227;
+    --gold-light: #f0c84a;
+    --white: #f4f8ff;
+    --silver: #a8bcd4;
+    --splash: #4fc3f7;
+    --water: #29b6f6;
+    --clean: #00e5ff;
+    --grime: #5d4c3a;
+    --algae: #3a6b3a;
+    --mold: #4a4a2a;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Exo 2', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+    background: rgba(10,22,40,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(201,162,39,0.3);
+    padding: 0 2rem;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 70px;
+  }
+
+  .nav-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+    color: var(--gold);
+    text-shadow: 0 0 20px rgba(201,162,39,0.5);
+  }
+
+  .nav-logo span { color: var(--white); }
+
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: var(--silver);
+    text-decoration: none;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: color 0.3s;
+  }
+  .nav-links a:hover { color: var(--gold); }
+
+  .nav-cta {
+    background: linear-gradient(135deg, var(--gold), #a07c15);
+    color: var(--navy) !important;
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
+    font-weight: 700 !important;
+  }
+
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { width: 25px; height: 2px; background: var(--gold); transition: 0.3s; }
+
+  /* ─── HERO ─── */
+  #hero {
+    min-height: 100vh;
+    position: relative;
+    display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+    padding-top: 70px;
+  }
+
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(26,58,110,0.8) 0%, transparent 60%),
+                radial-gradient(ellipse at 80% 20%, rgba(79,195,247,0.15) 0%, transparent 50%),
+                linear-gradient(160deg, var(--navy) 0%, #071020 100%);
+  }
+
+  .water-drops {
+    position: absolute; inset: 0; pointer-events: none;
+    overflow: hidden;
+  }
+
+  .drop {
+    position: absolute;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(79,195,247,0.6), transparent);
+    animation: floatDrop linear infinite;
+    opacity: 0;
+  }
+
+  @keyframes floatDrop {
+    0% { transform: translateY(110vh) scale(0); opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 0.5; }
+    100% { transform: translateY(-10vh) scale(1); opacity: 0; }
+  }
+
+  .hero-content {
+    position: relative; z-index: 2;
+    display: flex; align-items: center; justify-content: space-between;
+    max-width: 1200px; width: 100%; padding: 0 2rem;
+    gap: 3rem;
+  }
+
+  .hero-text { flex: 1; }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(201,162,39,0.15);
+    border: 1px solid rgba(201,162,39,0.4);
+    color: var(--gold-light);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    padding: 0.4rem 1rem;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    line-height: 0.9;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-title .elite {
+    display: block;
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-sub {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: clamp(1rem, 2.5vw, 1.4rem);
+    color: var(--splash);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+  }
+
+  .hero-desc {
+    font-size: 1rem;
+    color: var(--silver);
+    line-height: 1.7;
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+  .btn-primary {
+    background: linear-gradient(135deg, var(--gold), #a07c15);
+    color: var(--navy);
+    padding: 0.9rem 2rem;
+    border-radius: 4px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none; cursor: pointer;
+    transition: all 0.3s;
+    box-shadow: 0 4px 20px rgba(201,162,39,0.3);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 30px rgba(201,162,39,0.5);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    padding: 0.9rem 2rem;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.3);
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--splash);
+    color: var(--splash);
+    background: rgba(79,195,247,0.05);
+  }
+
+  .hero-logo-area {
+    flex: 0 0 380px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+
+  .logo-glow {
+    position: absolute;
+    width: 350px; height: 350px;
+    background: radial-gradient(circle, rgba(201,162,39,0.2) 0%, transparent 70%);
+    animation: pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.1); opacity: 1; }
+  }
+
+  .hero-logo-area img {
+    width: 340px;
+    height: 340px;
+    object-fit: contain;
+    position: relative; z-index: 1;
+    filter: drop-shadow(0 0 30px rgba(201,162,39,0.4));
+    animation: logoFloat 4s ease-in-out infinite;
+  }
+
+  @keyframes logoFloat {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-12px); }
+  }
+
+  .hero-stats {
+    position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
+    display: flex; gap: 4rem;
+    z-index: 2;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+    color: var(--silver);
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  /* ─── SECTION STYLES ─── */
+  section { padding: 6rem 2rem; }
+
+  .section-label {
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 4px;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .section-title .accent { color: var(--gold); }
+
+  .section-desc {
+    color: var(--silver);
+    max-width: 600px;
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  .container { max-width: 1200px; margin: 0 auto; }
+
+  /* ─── SERVICES ─── */
+  #services {
+    background: linear-gradient(180deg, var(--navy) 0%, var(--deep-blue) 100%);
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .service-card {
+    background: linear-gradient(135deg, rgba(26,58,110,0.4), rgba(13,32,68,0.6));
+    border: 1px solid rgba(201,162,39,0.2);
+    border-radius: 8px;
+    padding: 2rem;
+    transition: all 0.4s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    transform: scaleX(0);
+    transition: transform 0.4s;
+  }
+
+  .service-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(201,162,39,0.5);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+  }
+
+  .service-card:hover::before { transform: scaleX(1); }
+
+  .service-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .service-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    margin-bottom: 0.75rem;
+    color: var(--gold-light);
+  }
+
+  .service-desc {
+    color: var(--silver);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+  }
+
+  .service-list {
+    list-style: none;
+    font-size: 0.85rem;
+    color: var(--silver);
+  }
+
+  .service-list li {
+    padding: 0.25rem 0;
+    padding-left: 1.2rem;
+    position: relative;
+  }
+
+  .service-list li::before {
+    content: '▸';
+    position: absolute; left: 0;
+    color: var(--splash);
+  }
+
+  /* ─── GALLERY CAROUSEL ─── */
+  #gallery {
+    background: var(--navy);
+    overflow: hidden;
+  }
+
+  .carousel-wrapper {
+    position: relative;
+    margin-top: 3rem;
+    overflow: hidden;
+    border-radius: 12px;
+  }
+
+  .carousel-track {
+    display: flex;
+    transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  .carousel-slide {
+    min-width: 100%;
+    position: relative;
+    aspect-ratio: 16/7;
+    overflow: hidden;
+  }
+
+  .slide-inner {
+    width: 100%; height: 100%;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .before-after {
+    width: 100%; height: 100%;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    background: #000;
+  }
+
+  .ba-panel {
+    position: relative;
+    overflow: hidden;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 2px;
+  }
+
+  .ba-before {
+    background: linear-gradient(135deg, #2d1f10, #3d2b15, #4a3520);
+  }
+
+  .ba-after {
+    background: linear-gradient(135deg, #0a2030, #1a3a5c, #0d2844);
+  }
+
+  .ba-label {
+    position: absolute; top: 1rem; left: 1rem;
+    background: rgba(0,0,0,0.6);
+    padding: 0.3rem 0.8rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+  }
+
+  .dirty-texture {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      45deg, transparent, transparent 3px,
+      rgba(80,50,20,0.3) 3px, rgba(80,50,20,0.3) 6px
+    );
+  }
+
+  .clean-shine {
+    position: absolute; inset: 0;
+    background: repeating-linear-gradient(
+      -45deg, transparent, transparent 15px,
+      rgba(79,195,247,0.05) 15px, rgba(79,195,247,0.05) 16px
+    );
+  }
+
+  .house-dirty, .house-clean, .deck-dirty, .deck-clean,
+  .driveway-dirty, .driveway-clean, .roof-dirty, .roof-clean {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    flex-direction: column; gap: 0.5rem;
+  }
+
+  .surface-icon { font-size: 5rem; }
+
+  .stain-overlay {
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 30% 60%, rgba(60,40,10,0.7), transparent 60%),
+                radial-gradient(ellipse at 70% 40%, rgba(50,70,20,0.5), transparent 50%),
+                radial-gradient(ellipse at 50% 80%, rgba(80,60,30,0.6), transparent 40%);
+  }
+
+  .carousel-nav {
+    display: flex; align-items: center; justify-content: center;
+    gap: 1rem; margin-top: 1.5rem;
+  }
+
+  .carousel-btn {
+    background: rgba(201,162,39,0.2);
+    border: 1px solid rgba(201,162,39,0.4);
+    color: var(--gold);
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  .carousel-btn:hover {
+    background: var(--gold);
+    color: var(--navy);
+  }
+
+  .carousel-dots { display: flex; gap: 0.5rem; }
+
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: rgba(201,162,39,0.3);
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .dot.active { background: var(--gold); width: 24px; border-radius: 4px; }
+
+  /* ─── SIMULATOR ─── */
+  #simulator {
+    background: linear-gradient(180deg, var(--deep-blue) 0%, #071018 100%);
+  }
+
+  .sim-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3rem;
+    align-items: center;
+  }
+
+  .sim-info { }
+
+  .sim-stats-row {
+    display: flex; gap: 1.5rem; margin: 1.5rem 0;
+  }
+
+  .sim-stat-box {
+    flex: 1;
+    background: rgba(26,58,110,0.3);
+    border: 1px solid rgba(79,195,247,0.2);
+    border-radius: 8px;
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .sim-stat-val {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: var(--clean);
+  }
+
+  .sim-stat-lbl {
+    font-size: 0.7rem;
+    color: var(--silver);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+
+  .germ-facts { margin-top: 1.5rem; }
+
+  .fact-item {
+    display: flex; align-items: flex-start; gap: 0.75rem;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .fact-icon { font-size: 1.2rem; flex-shrink: 0; }
+
+  .fact-text {
+    font-size: 0.85rem;
+    color: var(--silver);
+    line-height: 1.5;
+  }
+
+  .fact-text strong { color: var(--white); }
+
+  /* Canvas Game */
+  .sim-game { position: relative; }
+
+  #simCanvas {
+    border-radius: 12px;
+    border: 2px solid rgba(79,195,247,0.3);
+    box-shadow: 0 0 40px rgba(79,195,247,0.1);
+    display: block;
+    cursor: crosshair;
+    width: 100%;
+    max-width: 500px;
+  }
+
+  .sim-controls {
+    display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap;
+  }
+
+  .sim-btn {
+    background: rgba(79,195,247,0.15);
+    border: 1px solid rgba(79,195,247,0.4);
+    color: var(--splash);
+    padding: 0.6rem 1.2rem;
+    border-radius: 6px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+
+  .sim-btn:hover {
+    background: rgba(79,195,247,0.3);
+    box-shadow: 0 0 15px rgba(79,195,247,0.3);
+  }
+
+  .sim-btn.active-mode {
+    background: rgba(79,195,247,0.4);
+    border-color: var(--splash);
+    box-shadow: 0 0 20px rgba(79,195,247,0.4);
+  }
+
+  .sim-progress {
+    margin-top: 1rem;
+  }
+
+  .progress-label {
+    font-size: 0.8rem;
+    color: var(--silver);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    display: flex; justify-content: space-between;
+  }
+
+  .progress-bar {
+    height: 6px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  .progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--water), var(--clean));
+    border-radius: 3px;
+    transition: width 0.3s;
+  }
+
+  /* ─── QUOTE ─── */
+  #quote {
+    background: linear-gradient(135deg, var(--deep-blue), #071018);
+    position: relative;
+    overflow: hidden;
+  }
+
+  #quote::before {
+    content: '';
+    position: absolute;
+    top: -100px; right: -100px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(201,162,39,0.08), transparent 70%);
+  }
+
+  .quote-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .quote-why { }
+
+  .why-list { list-style: none; margin-top: 1.5rem; }
+
+  .why-item {
+    display: flex; gap: 1rem;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .why-check {
+    width: 28px; height: 28px;
+    background: linear-gradient(135deg, var(--gold), #a07c15);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 0.8rem;
+    color: var(--navy);
+    font-weight: bold;
+    flex-shrink: 0;
+  }
+
+  .why-text { }
+
+  .why-title {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--white);
+    margin-bottom: 0.2rem;
+  }
+
+  .why-desc {
+    font-size: 0.85rem;
+    color: var(--silver);
+  }
+
+  .quote-form {
+    background: rgba(10,22,40,0.8);
+    border: 1px solid rgba(201,162,39,0.25);
+    border-radius: 12px;
+    padding: 2.5rem;
+    position: relative; z-index: 1;
+  }
+
+  .quote-form h3 {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    color: var(--gold);
+  }
+
+  .quote-form p {
+    color: var(--silver);
+    font-size: 0.85rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .form-group { margin-bottom: 1rem; }
+
+  .form-group label {
+    display: block;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    color: var(--silver);
+    text-transform: uppercase;
+    margin-bottom: 0.4rem;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+  }
+
+  .form-group input,
+  .form-group select,
+  .form-group textarea {
+    width: 100%;
+    background: rgba(26,58,110,0.3);
+    border: 1px solid rgba(79,195,247,0.2);
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    color: var(--white);
+    font-family: 'Exo 2', sans-serif;
+    font-size: 0.9rem;
+    outline: none;
+    transition: border-color 0.3s;
+  }
+
+  .form-group input:focus,
+  .form-group select:focus,
+  .form-group textarea:focus {
+    border-color: var(--splash);
+    box-shadow: 0 0 0 3px rgba(79,195,247,0.1);
+  }
+
+  .form-group select option { background: var(--deep-blue); }
+
+  .form-group textarea { resize: vertical; min-height: 100px; }
+
+  .form-submit {
+    width: 100%;
+    background: linear-gradient(135deg, var(--gold), #a07c15);
+    color: var(--navy);
+    border: none;
+    border-radius: 6px;
+    padding: 1rem;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 0.3s;
+    margin-top: 0.5rem;
+  }
+
+  .form-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(201,162,39,0.4);
+  }
+
+  .success-msg {
+    display: none;
+    text-align: center;
+    padding: 2rem;
+    color: var(--clean);
+    font-family: 'Rajdhani', sans-serif;
+    font-size: 1.2rem;
+  }
+
+  /* ─── REVIEWS ─── */
+  #reviews {
+    background: var(--navy);
+  }
+
+  .reviews-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  .review-card {
+    background: linear-gradient(135deg, rgba(26,58,110,0.3), rgba(13,32,68,0.5));
+    border: 1px solid rgba(201,162,39,0.15);
+    border-radius: 10px;
+    padding: 1.75rem;
+    transition: all 0.3s;
+    position: relative;
+  }
+
+  .review-card:hover {
+    transform: translateY(-4px);
+    border-color: rgba(201,162,39,0.35);
+  }
+
+  .review-quote-icon {
+    font-size: 3rem;
+    color: rgba(201,162,39,0.2);
+    line-height: 1;
+    margin-bottom: 1rem;
+  }
+
+  .review-text {
+    color: var(--silver);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .review-stars {
+    color: var(--gold);
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .reviewer {
+    display: flex; align-items: center; gap: 0.75rem;
+  }
+
+  .reviewer-avatar {
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem;
+    font-weight: 700;
+    font-family: 'Rajdhani', sans-serif;
+    flex-shrink: 0;
+  }
+
+  .reviewer-name {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+  }
+
+  .reviewer-type {
+    font-size: 0.75rem;
+    color: var(--silver);
+    letter-spacing: 1px;
+  }
+
+  /* ─── WHY US STRIP ─── */
+  .why-strip {
+    background: linear-gradient(90deg, var(--mid-blue), var(--deep-blue));
+    border-top: 1px solid rgba(201,162,39,0.2);
+    border-bottom: 1px solid rgba(201,162,39,0.2);
+    padding: 2.5rem;
+    display: flex; align-items: center; justify-content: center;
+    gap: 4rem; flex-wrap: wrap;
+  }
+
+  .strip-item {
+    display: flex; align-items: center; gap: 0.75rem;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--white);
+  }
+
+  .strip-icon { font-size: 1.5rem; }
+
+  /* ─── COMMERCIAL / RESIDENTIAL ─── */
+  #services-detail {
+    background: linear-gradient(180deg, #071018 0%, var(--deep-blue) 100%);
+  }
+
+  .split-services {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .split-card {
+    border-radius: 12px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .split-card.residential {
+    background: linear-gradient(135deg, rgba(41,182,246,0.1), rgba(13,32,68,0.8));
+    border: 1px solid rgba(41,182,246,0.3);
+  }
+
+  .split-card.commercial {
+    background: linear-gradient(135deg, rgba(201,162,39,0.1), rgba(13,32,68,0.8));
+    border: 1px solid rgba(201,162,39,0.3);
+  }
+
+  .split-type {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .split-card.residential .split-type { color: var(--splash); }
+  .split-card.commercial .split-type { color: var(--gold); }
+
+  .split-desc {
+    color: var(--silver);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .split-services-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .split-services-list li {
+    font-size: 0.85rem;
+    color: var(--silver);
+    padding: 0.3rem 0;
+    padding-left: 1rem;
+    position: relative;
+  }
+
+  .split-services-list li::before {
+    content: '✓';
+    position: absolute; left: 0;
+    color: var(--water);
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #040d1a;
+    border-top: 1px solid rgba(201,162,39,0.2);
+    padding: 4rem 2rem 2rem;
+  }
+
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 3rem;
+    max-width: 1200px;
+    margin: 0 auto 3rem;
+  }
+
+  .footer-brand { }
+
+  .footer-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.8rem;
+    color: var(--gold);
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+  }
+
+  .footer-desc {
+    color: var(--silver);
+    font-size: 0.85rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+  }
+
+  .footer-contact-item {
+    display: flex; align-items: center; gap: 0.5rem;
+    color: var(--silver);
+    font-size: 0.85rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-contact-item span:first-child { color: var(--gold); }
+
+  .footer-col h4 {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1rem;
+  }
+
+  .footer-col ul { list-style: none; }
+
+  .footer-col ul li {
+    margin-bottom: 0.5rem;
+  }
+
+  .footer-col ul li a {
+    color: var(--silver);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.3s;
+  }
+
+  .footer-col ul li a:hover { color: var(--white); }
+
+  .footer-bottom {
+    border-top: 1px solid rgba(255,255,255,0.06);
+    padding-top: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex; justify-content: space-between; align-items: center;
+    flex-wrap: wrap; gap: 1rem;
+  }
+
+  .footer-copy {
+    color: var(--silver);
+    font-size: 0.8rem;
+  }
+
+  .footer-social { display: flex; gap: 0.75rem; }
+
+  .social-btn {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: rgba(201,162,39,0.15);
+    border: 1px solid rgba(201,162,39,0.3);
+    display: flex; align-items: center; justify-content: center;
+    color: var(--gold);
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-decoration: none;
+  }
+
+  .social-btn:hover {
+    background: var(--gold);
+    color: var(--navy);
+  }
+
+  /* ─── FLOATING CALL BTN ─── */
+  .floating-call {
+    position: fixed;
+    bottom: 2rem; right: 2rem;
+    z-index: 999;
+    background: linear-gradient(135deg, var(--gold), #a07c15);
+    color: var(--navy);
+    padding: 1rem 1.5rem;
+    border-radius: 50px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+    text-decoration: none;
+    box-shadow: 0 8px 25px rgba(201,162,39,0.4);
+    display: flex; align-items: center; gap: 0.5rem;
+    animation: callPulse 2s ease-in-out infinite;
+    transition: transform 0.3s;
+  }
+
+  .floating-call:hover { transform: scale(1.05); }
+
+  @keyframes callPulse {
+    0%, 100% { box-shadow: 0 8px 25px rgba(201,162,39,0.4); }
+    50% { box-shadow: 0 8px 40px rgba(201,162,39,0.7); }
+  }
+
+  /* ─── MODAL ─── */
+  .modal-overlay {
+    display: none;
+    position: fixed; inset: 0; z-index: 2000;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(6px);
+    align-items: center; justify-content: center;
+  }
+
+  .modal-overlay.open { display: flex; }
+
+  .modal-box {
+    background: var(--deep-blue);
+    border: 1px solid rgba(201,162,39,0.3);
+    border-radius: 12px;
+    padding: 2.5rem;
+    max-width: 500px;
+    width: 90%;
+    text-align: center;
+  }
+
+  .modal-icon { font-size: 3rem; margin-bottom: 1rem; }
+
+  .modal-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 0.5rem;
+  }
+
+  .modal-text {
+    color: var(--silver);
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+
+  .modal-close {
+    background: linear-gradient(135deg, var(--gold), #a07c15);
+    color: var(--navy);
+    border: none;
+    padding: 0.8rem 2rem;
+    border-radius: 6px;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  /* ─── SCROLL ANIMATIONS ─── */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .hero-content { flex-direction: column; text-align: center; }
+    .hero-logo-area { flex: none; width: 100%; }
+    .hero-logo-area img { width: 240px; height: 240px; }
+    .hero-stats { position: static; transform: none; justify-content: center; margin-top: 2rem; gap: 2rem; }
+    .sim-container { grid-template-columns: 1fr; }
+    .quote-grid { grid-template-columns: 1fr; }
+    .split-services { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .hamburger { display: flex; }
+    .form-row { grid-template-columns: 1fr; }
+    .why-strip { gap: 2rem; }
+  }
+
+  @media (max-width: 600px) {
+    .footer-grid { grid-template-columns: 1fr; }
+    .hero-stats { gap: 1.5rem; }
+    .stat-num { font-size: 2rem; }
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--navy); }
+  ::-webkit-scrollbar-thumb { background: var(--gold); border-radius: 3px; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">SMITHEN <span>ELITE</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#simulator">Simulator</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#quote" class="nav-cta">Get a Quote</a></li>
+  </ul>
+  <div class="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- FLOATING CALL -->
+<a href="tel:+15550000000" class="floating-call">📞 Call Now</a>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="water-drops" id="waterDrops"></div>
+
+  <div class="hero-content">
+    <div class="hero-text">
+      <div class="hero-badge">⭐ Licensed & Insured · Residential & Commercial</div>
+      <h1 class="hero-title">
+        <span class="elite">SMITHEN</span>
+        ELITE SOFT<br>WASHING
+      </h1>
+      <p class="hero-sub">LLC · Professional Exterior Cleaning</p>
+      <p class="hero-desc">
+        Premium soft washing and pressure washing services that protect your property while delivering a spotless, showroom-quality clean. No damage. No shortcuts. Just elite results.
+      </p>
+      <div class="hero-buttons">
+        <a href="#quote" class="btn-primary">Get Free Quote</a>
+        <a href="#simulator" class="btn-outline">Try the Simulator</a>
+      </div>
+    </div>
+    <div class="hero-logo-area">
+      <div class="logo-glow"></div>
+      <img src="/mnt/user-data/uploads/CD48B09E-3C74-4B7D-963E-6B5B9D1E50B1.png" alt="Smithen Elite Soft Washing Logo">
+    </div>
+  </div>
+
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">500+</div>
+      <div class="stat-label">Jobs Completed</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Satisfaction Rate</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">5★</div>
+      <div class="stat-label">Average Rating</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">10+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY STRIP -->
+<div class="why-strip">
+  <div class="strip-item"><span class="strip-icon">🛡️</span> Fully Insured</div>
+  <div class="strip-item"><span class="strip-icon">⚡</span> Same-Day Estimates</div>
+  <div class="strip-item"><span class="strip-icon">💧</span> Eco-Safe Solutions</div>
+  <div class="strip-item"><span class="strip-icon">🏠</span> Residential & Commercial</div>
+  <div class="strip-item"><span class="strip-icon">✅</span> Satisfaction Guaranteed</div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="container">
+    <p class="section-label fade-up">What We Do</p>
+    <h2 class="section-title fade-up">OUR <span class="accent">SERVICES</span></h2>
+    <p class="section-desc fade-up">From a single driveway to a full commercial complex — we handle it all with precision, care, and elite results.</p>
+
+    <div class="services-grid">
+      <div class="service-card fade-up">
+        <span class="service-icon">🏠</span>
+        <div class="service-title">Soft Washing</div>
+        <p class="service-desc">Our signature low-pressure method safely removes algae, mold, mildew, and bacteria from delicate surfaces without causing damage.</p>
+        <ul class="service-list">
+          <li>Roofs & Shingles</li>
+          <li>Siding & Stucco</li>
+          <li>Painted Surfaces</li>
+          <li>Wood Fences</li>
+        </ul>
+      </div>
+      <div class="service-card fade-up">
+        <span class="service-icon">💦</span>
+        <div class="service-title">Pressure Washing</div>
+        <p class="service-desc">High-powered precision cleaning for tough surfaces. Blasts away years of grime, oil stains, and built-up dirt in a single pass.</p>
+        <ul class="service-list">
+          <li>Driveways & Concrete</li>
+          <li>Patios & Walkways</li>
+          <li>Decks & Fences</li>
+          <li>Retaining Walls</li>
+        </ul>
+      </div>
+      <div class="service-card fade-up">
+        <span class="service-icon">🏢</span>
+        <div class="service-title">Commercial Washing</div>
+        <p class="service-desc">Maintain your business image and property value with our commercial-grade cleaning programs tailored to your schedule.</p>
+        <ul class="service-list">
+          <li>Storefronts & Awnings</li>
+          <li>Parking Lots</li>
+          <li>Fleet Washing</li>
+          <li>Graffiti Removal</li>
+        </ul>
+      </div>
+      <div class="service-card fade-up">
+        <span class="service-icon">🪟</span>
+        <div class="service-title">Window Cleaning</div>
+        <p class="service-desc">Crystal-clear results using streak-free solutions and professional technique for both interior and exterior glass surfaces.</p>
+        <ul class="service-list">
+          <li>Residential Windows</li>
+          <li>Commercial Glass</li>
+          <li>Skylights</li>
+          <li>Solar Panels</li>
+        </ul>
+      </div>
+      <div class="service-card fade-up">
+        <span class="service-icon">🌿</span>
+        <div class="service-title">Algae & Mold Treatment</div>
+        <p class="service-desc">Targeted biocide treatments that kill and prevent regrowth of algae, mold, and mildew for long-lasting protection.</p>
+        <ul class="service-list">
+          <li>Roof Algae Removal</li>
+          <li>Black Streak Treatment</li>
+          <li>Preventive Sealants</li>
+          <li>Annual Programs</li>
+        </ul>
+      </div>
+      <div class="service-card fade-up">
+        <span class="service-icon">🎯</span>
+        <div class="service-title">Gutter Cleaning</div>
+        <p class="service-desc">Prevent water damage and foundation issues with thorough gutter clearing and downspout flushing services.</p>
+        <ul class="service-list">
+          <li>Debris Removal</li>
+          <li>Downspout Flush</li>
+          <li>Gutter Brightening</li>
+          <li>Seasonal Service</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESIDENTIAL vs COMMERCIAL -->
+<section id="services-detail">
+  <div class="container">
+    <p class="section-label fade-up">Who We Serve</p>
+    <h2 class="section-title fade-up">RESIDENTIAL <span class="accent">&</span> COMMERCIAL</h2>
+
+    <div class="split-services">
+      <div class="split-card residential fade-up">
+        <div style="font-size:3rem; margin-bottom:0.75rem">🏡</div>
+        <div class="split-type">RESIDENTIAL</div>
+        <p class="split-desc">Protect your biggest investment. Our gentle yet powerful cleaning methods restore your home's curb appeal and safeguard surfaces from long-term damage.</p>
+        <ul class="split-services-list">
+          <li>House Washing</li>
+          <li>Roof Cleaning</li>
+          <li>Driveway Cleaning</li>
+          <li>Deck Restoration</li>
+          <li>Fence Cleaning</li>
+          <li>Patio Washing</li>
+          <li>Pool Deck</li>
+          <li>Gutter Cleaning</li>
+        </ul>
+      </div>
+      <div class="split-card commercial fade-up">
+        <div style="font-size:3rem; margin-bottom:0.75rem">🏗️</div>
+        <div class="split-type">COMMERCIAL</div>
+        <p class="split-desc">First impressions drive business. We keep your commercial property looking professional year-round with flexible scheduling that works around your operations.</p>
+        <ul class="split-services-list">
+          <li>Building Exteriors</li>
+          <li>Parking Structures</li>
+          <li>Restaurant Degreasing</li>
+          <li>Retail Storefronts</li>
+          <li>Office Buildings</li>
+          <li>Graffiti Removal</li>
+          <li>HOA Properties</li>
+          <li>Fleet Washing</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <div class="container">
+    <p class="section-label fade-up">Our Work</p>
+    <h2 class="section-title fade-up">BEFORE <span class="accent">&</span> AFTER</h2>
+    <p class="section-desc fade-up">See the Smithen Elite difference in action. Real results from real jobs.</p>
+  </div>
+
+  <div style="max-width:1200px; margin: 0 auto; padding: 0 2rem;">
+    <div class="carousel-wrapper fade-up">
+      <div class="carousel-track" id="carouselTrack">
+
+        <!-- Slide 1: House Washing -->
+        <div class="carousel-slide">
+          <div class="before-after">
+            <div class="ba-panel ba-before">
+              <div class="dirty-texture"></div>
+              <div class="stain-overlay"></div>
+              <div style="position:relative;z-index:1;text-align:center">
+                <div style="font-size:6rem">🏠</div>
+                <div style="font-size:0.8rem;color:#8a7060;letter-spacing:2px;margin-top:0.5rem">MOLD · ALGAE · GRIME</div>
+              </div>
+              <div class="ba-label" style="color:#c0a080">BEFORE</div>
+            </div>
+            <div class="ba-panel ba-after">
+              <div class="clean-shine"></div>
+              <div style="position:relative;z-index:1;text-align:center">
+                <div style="font-size:6rem">🏠</div>
+                <div style="font-size:0.8rem;color:var(--splash);letter-spacing:2px;margin-top:0.5rem">SPOTLESS · PROTECTED</div>
+              </div>
+              <div class="ba-label" style="color:var(--splash)">AFTER</div>
+            </div>
+          </div>
+          <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(7,16,24,0.9));padding:1.5rem 2rem;display:flex;align-items:flex-end;justify-content:space-between">
+            <div>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:2px">House Soft Wash</div>
+              <div style="font-size:0.8rem;color:var(--silver)">Residential · Full Exterior Treatment</div>
+            </div>
+            <div style="text-align:right;color:var(--gold);font-family:'Bebas Neue',sans-serif;font-size:1.2rem">100% MOLD FREE</div>
+          </div>
+        </div>
+
+        <!-- Slide 2: Driveway -->
+        <div class="carousel-slide">
+          <div class="before-after">
+            <div class="ba-panel ba-before" style="background:linear-gradient(135deg,#1a1208,#2a1e10,#221508)">
+              <div class="dirty-texture"></div>
+              <div style="position:relative;z-index:1;text-align:center">
+                <div style="font-size:6rem">🛣️</div>
+                <div style="font-size:0.8rem;color:#8a7050;letter-spacing:2px;margin-top:0.5rem">OIL · RUST · TIRE MARKS</div>
+              </div>
+              <div class="ba-label" style="color:#c0a080">BEFORE</div>
+            </div>
+            <div class="ba-panel ba-after" style="background:linear-gradient(135deg,#0d2030,#1a3045,#102535)">
+              <div class="clean-shine"></div>
+              <div style="position:relative;z-index:1;text-align:center">
+                <div style="font-size:6rem">🛣️</div>
+                <div style="font-size:0.8rem;color:var(--clean);letter-spacing:2px;margin-top:0.5rem">BRIGHT · LIKE NEW</div>
+              </div>
+              <div class="ba-label" style="color:var(--splash)">AFTER</div>
+            </div>
+          </div>
+          <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(7,16,24,0.9));padding:1.5rem 2rem;display:flex;align-items:flex-end;justify-content:space-between">
+            <div>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:2px">Driveway Power Wash</div>
+              <div style="font-size:0.8rem;color:var(--silver)">Residential · Concrete Restoration</div>
+            </div>
+            <div style="text-align:right;color:var(--gold);font-family:'Bebas Neue',sans-serif;font-size:1.2rem">STAIN ELIMINATED</div>
+          </div>
+        </div>
+
+        <!-- Slide 3: Roof -->
+        <div class="carousel-slide">
+          <div class="before-after">
+            <div class="ba-panel ba-before" style="background:linear-gradient(135deg,#0f0f0a,#1a1a10,#151508)">
+              <div class="dirty-texture"></div>
+              <div style="position:relative;z-index:1;text-align:center">
+                <div style="font-size:6rem">🏚️</div>
+                <div style="font-size:0.8rem;color:#807560;letter-spacing:2px;margin-top:0.5rem">BLACK STREAKS · MOSS</div>
+              </div>
+              <div class="ba-label" style="color:#c0b080">BEFORE</div>
+            </div>
+            <div class="ba-panel ba-after" style="background:linear-gradient(135deg,#0d1830,#172a50,#0f2040)">
+              <div class="clean-shine"></div>
+              <div style="position:relative;z-index:1;text-align:center">
+                <div style="font-size:6rem">🏠</div>
+                <div style="font-size:0.8rem;color:var(--splash);letter-spacing:2px;margin-top:0.5rem">RESTORED · PROTECTED</div>
+              </div>
+              <div class="ba-label" style="color:var(--splash)">AFTER</div>
+            </div>
+          </div>
+          <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(7,16,24,0.9));padding:1.5rem 2rem;display:flex;align-items:flex-end;justify-content:space-between">
+            <div>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:2px">Roof Soft Wash</div>
+              <div style="font-size:0.8rem;color:var(--silver)">Residential · Shingle Safe Treatment</div>
+            </div>
+            <div style="text-align:right;color:var(--gold);font-family:'Bebas Neue',sans-serif;font-size:1.2rem">LIFE EXTENDED 10YRS</div>
+          </div>
+        </div>
+
+        <!-- Slide 4: Commercial -->
+        <div class="carousel-slide">
+          <div class="before-after">
+            <div class="ba-panel ba-before" style="background:linear-gradient(135deg,#151010,#221818,#1a1212)">
+              <div class="dirty-texture"></div>
+              <div style="position:relative;z-index:1;text-align:center">
+                <div style="font-size:6rem">🏪</div>
+                <div style="font-size:0.8rem;color:#907870;letter-spacing:2px;margin-top:0.5rem">GRIME · GRAFFITI · BUILDUP</div>
+              </div>
+              <div class="ba-label" style="color:#c09080">BEFORE</div>
+            </div>
+            <div class="ba-panel ba-after" style="background:linear-gradient(135deg,#0a1a30,#162840,#0d2035)">
+              <div class="clean-shine"></div>
+              <div style="position:relative;z-index:1;text-align:center">
+                <div style="font-size:6rem">🏪</div>
+                <div style="font-size:0.8rem;color:var(--clean);letter-spacing:2px;margin-top:0.5rem">PROFESSIONAL · PRISTINE</div>
+              </div>
+              <div class="ba-label" style="color:var(--splash)">AFTER</div>
+            </div>
+          </div>
+          <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(7,16,24,0.9));padding:1.5rem 2rem;display:flex;align-items:flex-end;justify-content:space-between">
+            <div>
+              <div style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;letter-spacing:2px">Commercial Storefront</div>
+              <div style="font-size:0.8rem;color:var(--silver)">Commercial · Exterior Facade Wash</div>
+            </div>
+            <div style="text-align:right;color:var(--gold);font-family:'Bebas Neue',sans-serif;font-size:1.2rem">CURB APPEAL RESTORED</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="carousel-nav">
+      <button class="carousel-btn" onclick="prevSlide()">‹</button>
+      <div class="carousel-dots" id="carouselDots"></div>
+      <button class="carousel-btn" onclick="nextSlide()">›</button>
+    </div>
+  </div>
+</section>
+
+<!-- SIMULATOR -->
+<section id="simulator">
+  <div class="container">
+    <p class="section-label fade-up">Interactive Experience</p>
+    <h2 class="section-title fade-up">PRESSURE WASH <span class="accent">SIMULATOR</span></h2>
+    <p class="section-desc fade-up">See what lives on your surfaces — and watch our soft wash system eliminate it. Click and drag to clean!</p>
+
+    <div class="sim-container">
+      <div class="sim-info fade-up">
+        <div class="sim-stats-row">
+          <div class="sim-stat-box">
+            <div class="sim-stat-val" id="germCount">100%</div>
+            <div class="sim-stat-lbl">Contamination</div>
+          </div>
+          <div class="sim-stat-box">
+            <div class="sim-stat-val" id="cleanPercent">0%</div>
+            <div class="sim-stat-lbl">Clean Surface</div>
+          </div>
+          <div class="sim-stat-box">
+            <div class="sim-stat-val" id="germsKilled">0</div>
+            <div class="sim-stat-lbl">Germs Killed</div>
+          </div>
+        </div>
+
+        <div class="germ-facts">
+          <div class="fact-item">
+            <span class="fact-icon">🦠</span>
+            <div class="fact-text"><strong>Algae (Green)</strong> — Thrives in moisture and shade. Makes surfaces slippery and etches into concrete over time.</div>
+          </div>
+          <div class="fact-item">
+            <span class="fact-icon">🍄</span>
+            <div class="fact-text"><strong>Mold (Dark)</strong> — Produces spores that can enter your home and cause respiratory issues. Spreads rapidly.</div>
+          </div>
+          <div class="fact-item">
+            <span class="fact-icon">🟤</span>
+            <div class="fact-text"><strong>Dirt & Grime</strong> — Traps moisture against surfaces, accelerating decay and reducing property value.</div>
+          </div>
+          <div class="fact-item">
+            <span class="fact-icon">⚠️</span>
+            <div class="fact-text"><strong>Bacteria</strong> — Outdoor surfaces can harbor <strong>E. coli, Salmonella</strong>, and other harmful pathogens.</div>
+          </div>
+          <div class="fact-item">
+            <span class="fact-icon">💧</span>
+            <div class="fact-text">Our <strong>eco-safe cleaning agents</strong> kill 99.9% of surface bacteria while protecting your landscaping.</div>
+          </div>
+        </div>
+
+        <div class="sim-progress" style="margin-top:1.5rem">
+          <div class="progress-label">
+            <span>Surface Cleanliness</span>
+            <span id="progressPct">0%</span>
+          </div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progressFill" style="width:0%"></div>
+          </div>
+        </div>
+
+        <div id="simWinMsg" style="display:none;margin-top:1rem;padding:1rem;background:rgba(0,229,255,0.1);border:1px solid rgba(0,229,255,0.3);border-radius:8px;color:var(--clean);font-family:'Rajdhani',sans-serif;font-weight:700;font-size:1.1rem;text-align:center">
+          🎉 SURFACE FULLY CLEANED! Smithen Elite Approved! ✅
+        </div>
+      </div>
+
+      <div class="sim-game fade-up">
+        <canvas id="simCanvas" width="500" height="380"></canvas>
+        <div class="sim-controls">
+          <button class="sim-btn active-mode" id="btnSoft" onclick="setMode('soft')">💧 Soft Wash</button>
+          <button class="sim-btn" id="btnPressure" onclick="setMode('pressure')">⚡ Pressure Wash</button>
+          <button class="sim-btn" onclick="resetSim()">🔄 Reset</button>
+        </div>
+        <div style="margin-top:0.75rem;font-size:0.75rem;color:var(--silver);letter-spacing:1px">
+          🖱️ Click &amp; drag on the canvas to clean · Switch between modes above
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE -->
+<section id="quote">
+  <div class="container">
+    <div class="quote-grid">
+      <div class="quote-why fade-up">
+        <p class="section-label">Free Estimate</p>
+        <h2 class="section-title">GET YOUR <span class="accent">QUOTE</span></h2>
+        <p class="section-desc">No pressure, no obligation. We'll assess your property and provide a transparent, competitive quote — usually within hours.</p>
+
+        <ul class="why-list">
+          <li class="why-item">
+            <div class="why-check">✓</div>
+            <div class="why-text">
+              <div class="why-title">Fast Response Time</div>
+              <div class="why-desc">We typically respond to quote requests within 2 hours during business hours.</div>
+            </div>
+          </li>
+          <li class="why-item">
+            <div class="why-check">✓</div>
+            <div class="why-text">
+              <div class="why-title">Transparent Pricing</div>
+              <div class="why-desc">No hidden fees. What we quote is what you pay. Period.</div>
+            </div>
+          </li>
+          <li class="why-item">
+            <div class="why-check">✓</div>
+            <div class="why-text">
+              <div class="why-title">Fully Insured</div>
+              <div class="why-desc">Your property is protected. We carry full liability insurance on every job.</div>
+            </div>
+          </li>
+          <li class="why-item">
+            <div class="why-check">✓</div>
+            <div class="why-text">
+              <div class="why-title">Satisfaction Guarantee</div>
+              <div class="why-desc">If you're not 100% satisfied, we'll come back and make it right at no charge.</div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="quote-form fade-up">
+        <h3>FREE QUOTE</h3>
+        <p>Fill out the form below and we'll get back to you ASAP!</p>
+
+        <div id="quoteFormEl">
+          <div class="form-row">
+            <div class="form-group">
+              <label>First Name</label>
+              <input type="text" placeholder="John" id="fname">
+            </div>
+            <div class="form-group">
+              <label>Last Name</label>
+              <input type="text" placeholder="Smith" id="lname">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="(555) 000-0000" id="phone">
+          </div>
+
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="john@example.com" id="email">
+          </div>
+
+          <div class="form-group">
+            <label>Property Type</label>
+            <select id="propType">
+              <option value="">Select property type...</option>
+              <option>Residential - House</option>
+              <option>Residential - Condo / Townhome</option>
+              <option>Commercial - Small Business</option>
+              <option>Commercial - Large Building</option>
+              <option>HOA / Community</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Service Needed</label>
+            <select id="service">
+              <option value="">Select service...</option>
+              <option>Soft Washing</option>
+              <option>Pressure Washing</option>
+              <option>Roof Cleaning</option>
+              <option>Driveway / Concrete</option>
+              <option>Deck / Patio</option>
+              <option>Gutter Cleaning</option>
+              <option>Window Cleaning</option>
+              <option>Multiple Services</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Additional Notes</label>
+            <textarea placeholder="Tell us more about your property or specific concerns..."></textarea>
+          </div>
+
+          <button class="form-submit" onclick="submitQuote()">🚀 REQUEST FREE QUOTE</button>
+        </div>
+
+        <div class="success-msg" id="successMsg">
+          <div style="font-size:3rem;margin-bottom:1rem">✅</div>
+          <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;color:var(--gold);margin-bottom:0.5rem">QUOTE REQUESTED!</div>
+          <p style="color:var(--silver)">Thanks! We'll reach out within 2 hours to confirm your free estimate. Get ready for an elite clean!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="container">
+    <p class="section-label fade-up">Customer Reviews</p>
+    <h2 class="section-title fade-up">WHAT CLIENTS <span class="accent">SAY</span></h2>
+    <p class="section-desc fade-up">Don't just take our word for it — hear from our satisfied customers across the area.</p>
+
+    <div class="reviews-grid">
+      <div class="review-card fade-up">
+        <div class="review-quote-icon">"</div>
+        <p class="review-text">Smithen Elite transformed our driveway completely. Years of oil stains, tire marks, and algae — gone in one visit. The team was professional, on time, and the results were absolutely unreal. I didn't know concrete could look that clean!</p>
+        <div class="review-stars">★★★★★</div>
+        <div class="reviewer">
+          <div class="reviewer-avatar" style="background:linear-gradient(135deg,#1a5c8a,#0d3a5c)">MJ</div>
+          <div>
+            <div class="reviewer-name">Marcus Johnson</div>
+            <div class="reviewer-type">Homeowner · Driveway Wash</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-up">
+        <div class="review-quote-icon">"</div>
+        <p class="review-text">As a property manager, I need reliable vendors I can trust. Smithen Elite handles three of our commercial properties and they never disappoint. Always on schedule, great communication, and the buildings look immaculate every time.</p>
+        <div class="review-stars">★★★★★</div>
+        <div class="reviewer">
+          <div class="reviewer-avatar" style="background:linear-gradient(135deg,#5c1a3a,#3a0d25)">SR</div>
+          <div>
+            <div class="reviewer-name">Sandra Rodriguez</div>
+            <div class="reviewer-type">Property Manager · Commercial Account</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-up">
+        <div class="review-quote-icon">"</div>
+        <p class="review-text">My roof had black streaks and moss for years. I was quoted $8,000 for a new roof — but Smithen Elite soft washed it for a fraction of the cost and it looks brand new. Saved me thousands. Absolutely incredible service.</p>
+        <div class="review-stars">★★★★★</div>
+        <div class="reviewer">
+          <div class="reviewer-avatar" style="background:linear-gradient(135deg,#2a5c1a,#184010)">DT</div>
+          <div>
+            <div class="reviewer-name">Derek Thompson</div>
+            <div class="reviewer-type">Homeowner · Roof Soft Wash</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-up">
+        <div class="review-quote-icon">"</div>
+        <p class="review-text">We hired Smithen Elite for our restaurant's exterior and parking area before a big health inspection. They were thorough, fast, and the place looked spotless. The inspector even commented on how clean the property was. 10/10!</p>
+        <div class="review-stars">★★★★★</div>
+        <div class="reviewer">
+          <div class="reviewer-avatar" style="background:linear-gradient(135deg,#5c4a1a,#3a3010)">AL</div>
+          <div>
+            <div class="reviewer-name">Angela Lee</div>
+            <div class="reviewer-type">Restaurant Owner · Commercial Clean</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-up">
+        <div class="review-quote-icon">"</div>
+        <p class="review-text">The deck washing was beyond impressive. Our 20-year-old wood deck looks like it was just installed. The team took extra care around our flower beds and didn't damage a single plant. Respectful, professional, elite — exactly as advertised.</p>
+        <div class="review-stars">★★★★★</div>
+        <div class="reviewer">
+          <div class="reviewer-avatar" style="background:linear-gradient(135deg,#1a3a5c,#0d2035)">BK</div>
+          <div>
+            <div class="reviewer-name">Barbara King</div>
+            <div class="reviewer-type">Homeowner · Deck Restoration</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card fade-up">
+        <div class="review-quote-icon">"</div>
+        <p class="review-text">Got quotes from 4 companies. Smithen Elite wasn't the cheapest, but after seeing their before/after photos I knew quality mattered more. Best decision I made. The value for money is outstanding and the results speak for themselves.</p>
+        <div class="review-stars">★★★★★</div>
+        <div class="reviewer">
+          <div class="reviewer-avatar" style="background:linear-gradient(135deg,#5c1a1a,#3a0d0d)">RM</div>
+          <div>
+            <div class="reviewer-name">Robert Martinez</div>
+            <div class="reviewer-type">Homeowner · Full Exterior Package</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Review CTA -->
+    <div style="text-align:center;margin-top:3rem" class="fade-up">
+      <p style="color:var(--silver);font-size:0.9rem;margin-bottom:1rem">Had a great experience? We'd love to hear from you!</p>
+      <a href="#" class="btn-primary" onclick="openReviewModal(); return false;">⭐ Leave a Review</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="footer-logo">SMITHEN ELITE</div>
+      <p class="footer-desc">Professional soft washing and pressure washing services. We deliver elite results for residential and commercial properties with eco-safe solutions and guaranteed satisfaction.</p>
+      <div class="footer-contact-item"><span>📍</span> <span>Serving Your Local Area & Surrounding Counties</span></div>
+      <div class="footer-contact-item"><span>📞</span> <span>(555) 000-0000</span></div>
+      <div class="footer-contact-item"><span>✉️</span> <span>info@smithenelite.com</span></div>
+      <div class="footer-contact-item"><span>🕐</span> <span>Mon–Sat: 7AM–7PM · Sun: By Appointment</span></div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Services</h4>
+      <ul>
+        <li><a href="#">Soft Washing</a></li>
+        <li><a href="#">Pressure Washing</a></li>
+        <li><a href="#">Roof Cleaning</a></li>
+        <li><a href="#">Driveway Washing</a></li>
+        <li><a href="#">Deck & Patio</a></li>
+        <li><a href="#">Gutter Cleaning</a></li>
+        <li><a href="#">Commercial Services</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Company</h4>
+      <ul>
+        <li><a href="#">About Us</a></li>
+        <li><a href="#">Our Process</a></li>
+        <li><a href="#">Reviews</a></li>
+        <li><a href="#">Gallery</a></li>
+        <li><a href="#">FAQ</a></li>
+        <li><a href="#">Blog</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#quote">Get a Quote</a></li>
+        <li><a href="#">Service Areas</a></li>
+        <li><a href="#">Maintenance Plans</a></li>
+        <li><a href="#">Referral Program</a></li>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2025 Smithen Elite Soft Washing LLC · All Rights Reserved · Licensed & Insured</div>
+    <div class="footer-social">
+      <a href="#" class="social-btn">f</a>
+      <a href="#" class="social-btn">in</a>
+      <a href="#" class="social-btn">ig</a>
+      <a href="#" class="social-btn">▶</a>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="reviewModal">
+  <div class="modal-box">
+    <div class="modal-icon">⭐</div>
+    <div class="modal-title">LEAVE A REVIEW</div>
+    <p class="modal-text">Thank you for choosing Smithen Elite! Your feedback helps us grow and helps others make informed decisions.</p>
+    <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
+      <button class="modal-close" onclick="closeModal()" style="background:rgba(201,162,39,0.2);color:var(--gold);border:1px solid rgba(201,162,39,0.4)">Google Reviews</button>
+      <button class="modal-close" onclick="closeModal()">Facebook</button>
+    </div>
+    <div style="margin-top:1rem">
+      <button onclick="closeModal()" style="background:none;border:none;color:var(--silver);cursor:pointer;font-size:0.85rem">Maybe Later</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// ─── WATER DROPS ───
+(function() {
+  const container = document.getElementById('waterDrops');
+  for (let i = 0; i < 20; i++) {
+    const drop = document.createElement('div');
+    drop.className = 'drop';
+    const size = Math.random() * 80 + 20;
+    drop.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${Math.random() * 100}%;
+      animation-duration:${Math.random() * 10 + 8}s;
+      animation-delay:${Math.random() * 8}s;
+    `;
+    container.appendChild(drop);
+  }
+})();
+
+// ─── CAROUSEL ───
+let currentSlide = 0;
+const totalSlides = 4;
+const track = document.getElementById('carouselTrack');
+const dotsContainer = document.getElementById('carouselDots');
+
+for (let i = 0; i < totalSlides; i++) {
+  const dot = document.createElement('div');
+  dot.className = 'dot' + (i === 0 ? ' active' : '');
+  dot.onclick = () => goToSlide(i);
+  dotsContainer.appendChild(dot);
+}
+
+function goToSlide(n) {
+  currentSlide = n;
+  track.style.transform = `translateX(-${n * 100}%)`;
+  document.querySelectorAll('.dot').forEach((d, i) => {
+    d.classList.toggle('active', i === n);
+  });
+}
+
+function nextSlide() { goToSlide((currentSlide + 1) % totalSlides); }
+function prevSlide() { goToSlide((currentSlide - 1 + totalSlides) % totalSlides); }
+
+setInterval(nextSlide, 5000);
+
+// ─── SIMULATOR ───
+const canvas = document.getElementById('simCanvas');
+const ctx = canvas.getContext('2d');
+const W = canvas.width, H = canvas.height;
+
+let cells = [];
+let mode = 'soft';
+let isDrawing = false;
+let germsKilledCount = 0;
+const COLS = 50, ROWS = 38;
+const cellW = W / COLS, cellH = H / ROWS;
+
+const GERM_TYPES = [
+  { name: 'algae', color: '#2d5a2d', darkColor: '#1a3a1a' },
+  { name: 'mold', color: '#3a3a1a', darkColor: '#252510' },
+  { name: 'grime', color: '#4a3520', darkColor: '#2d1e10' },
+  { name: 'bacteria', color: '#5a2d1a', darkColor: '#3a1a08' },
+  { name: 'clean', color: null }
+];
+
+function initSim() {
+  cells = [];
+  germsKilledCount = 0;
+  for (let r = 0; r < ROWS; r++) {
+    cells[r] = [];
+    for (let c = 0; c < COLS; c++) {
+      const t = Math.floor(Math.random() * 4);
+      cells[r][c] = { type: t, hp: 1.0 };
+    }
+  }
+  updateStats();
+  renderSim();
+}
+
+function renderSim() {
+  ctx.clearRect(0, 0, W, H);
+
+  // Draw base surface
+  ctx.fillStyle = '#1a2a3a';
+  ctx.fillRect(0, 0, W, H);
+
+  // Draw cells
+  for (let r = 0; r < ROWS; r++) {
+    for (let c = 0; c < COLS; c++) {
+      const cell = cells[r][c];
+      const x = c * cellW, y = r * cellH;
+      if (cell.type < 4 && cell.hp > 0) {
+        const g = GERM_TYPES[cell.type];
+        const alpha = cell.hp;
+        ctx.globalAlpha = alpha;
+        ctx.fillStyle = g.color;
+        ctx.fillRect(x, y, cellW, cellH);
+        if (cell.hp > 0.3) {
+          ctx.fillStyle = g.darkColor;
+          ctx.fillRect(x + 1, y + 1, cellW * 0.4, cellH * 0.4);
+        }
+        ctx.globalAlpha = 1;
+      }
+    }
+  }
+
+  // Grid lines subtle
+  ctx.strokeStyle = 'rgba(255,255,255,0.03)';
+  ctx.lineWidth = 0.5;
+  for (let r = 0; r <= ROWS; r++) {
+    ctx.beginPath(); ctx.moveTo(0, r * cellH); ctx.lineTo(W, r * cellH); ctx.stroke();
+  }
+  for (let c = 0; c <= COLS; c++) {
+    ctx.beginPath(); ctx.moveTo(c * cellW, 0); ctx.lineTo(c * cellW, H); ctx.stroke();
+  }
+
+  // Draw clean sparkles
+  ctx.globalAlpha = 1;
+}
+
+function clean(x, y) {
+  const col = Math.floor(x / cellW);
+  const row = Math.floor(y / cellH);
+  const radius = mode === 'pressure' ? 4 : 3;
+  const power = mode === 'pressure' ? 0.4 : 0.2;
+
+  for (let r = row - radius; r <= row + radius; r++) {
+    for (let c = col - radius; c <= col + radius; c++) {
+      if (r < 0 || r >= ROWS || c < 0 || c >= COLS) continue;
+      const dist = Math.sqrt((r - row) ** 2 + (c - col) ** 2);
+      if (dist > radius) continue;
+      const cell = cells[r][c];
+      if (cell.type < 4 && cell.hp > 0) {
+        const dmg = power * (1 - dist / radius);
+        const before = cell.hp;
+        cell.hp = Math.max(0, cell.hp - dmg);
+        if (cell.hp === 0 && before > 0) germsKilledCount++;
+      }
+    }
+  }
+
+  // Spray effect
+  if (mode === 'pressure') {
+    ctx.save();
+    for (let i = 0; i < 8; i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const dist = Math.random() * 40;
+      const ex = x + Math.cos(angle) * dist;
+      const ey = y + Math.sin(angle) * dist;
+      ctx.strokeStyle = `rgba(79,195,247,${Math.random() * 0.5 + 0.3})`;
+      ctx.lineWidth = Math.random() * 2;
+      ctx.beginPath();
+      ctx.moveTo(x, y);
+      ctx.lineTo(ex, ey);
+      ctx.stroke();
+    }
+    ctx.restore();
+  } else {
+    ctx.save();
+    const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius * cellW);
+    gradient.addColorStop(0, 'rgba(79,195,247,0.3)');
+    gradient.addColorStop(1, 'rgba(79,195,247,0)');
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(x, y, radius * cellW, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+  }
+
+  renderSim();
+  updateStats();
+}
+
+function updateStats() {
+  let total = 0, remaining = 0;
+  for (let r = 0; r < ROWS; r++) {
+    for (let c = 0; c < COLS; c++) {
+      total++;
+      if (cells[r][c].hp > 0) remaining++;
+    }
+  }
+  const cleanPct = Math.round(((total - remaining) / total) * 100);
+  const contamination = Math.round((remaining / total) * 100);
+
+  document.getElementById('germCount').textContent = contamination + '%';
+  document.getElementById('cleanPercent').textContent = cleanPct + '%';
+  document.getElementById('germsKilled').textContent = germsKilledCount.toLocaleString();
+  document.getElementById('progressFill').style.width = cleanPct + '%';
+  document.getElementById('progressPct').textContent = cleanPct + '%';
+
+  if (cleanPct >= 95) {
+    document.getElementById('simWinMsg').style.display = 'block';
+  }
+}
+
+canvas.addEventListener('mousedown', (e) => { isDrawing = true; handleClean(e); });
+canvas.addEventListener('mousemove', (e) => { if (isDrawing) handleClean(e); });
+canvas.addEventListener('mouseup', () => isDrawing = false);
+canvas.addEventListener('mouseleave', () => isDrawing = false);
+
+canvas.addEventListener('touchstart', (e) => { isDrawing = true; handleCleanTouch(e); e.preventDefault(); }, { passive: false });
+canvas.addEventListener('touchmove', (e) => { if (isDrawing) handleCleanTouch(e); e.preventDefault(); }, { passive: false });
+canvas.addEventListener('touchend', () => isDrawing = false);
+
+function handleClean(e) {
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = canvas.width / rect.width;
+  const scaleY = canvas.height / rect.height;
+  const x = (e.clientX - rect.left) * scaleX;
+  const y = (e.clientY - rect.top) * scaleY;
+  clean(x, y);
+}
+
+function handleCleanTouch(e) {
+  const rect = canvas.getBoundingClientRect();
+  const scaleX = canvas.width / rect.width;
+  const scaleY = canvas.height / rect.height;
+  const touch = e.touches[0];
+  const x = (touch.clientX - rect.left) * scaleX;
+  const y = (touch.clientY - rect.top) * scaleY;
+  clean(x, y);
+}
+
+function setMode(m) {
+  mode = m;
+  document.getElementById('btnSoft').classList.toggle('active-mode', m === 'soft');
+  document.getElementById('btnPressure').classList.toggle('active-mode', m === 'pressure');
+}
+
+function resetSim() {
+  document.getElementById('simWinMsg').style.display = 'none';
+  initSim();
+}
+
+initSim();
+
+// ─── QUOTE FORM ───
+function submitQuote() {
+  const fname = document.getElementById('fname').value.trim();
+  const phone = document.getElementById('phone').value.trim();
+  if (!fname || !phone) {
+    alert('Please fill in at least your name and phone number.');
+    return;
+  }
+  document.getElementById('quoteFormEl').style.display = 'none';
+  document.getElementById('successMsg').style.display = 'block';
+}
+
+// ─── MODAL ───
+function openReviewModal() {
+  document.getElementById('reviewModal').classList.add('open');
+}
+
+function closeModal() {
+  document.getElementById('reviewModal').classList.remove('open');
+}
+
+document.getElementById('reviewModal').addEventListener('click', function(e) {
+  if (e.target === this) closeModal();
+});
+
+// ─── SCROLL ANIMATIONS ───
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+// ─── HAMBURGER ───
+function toggleMenu() {
+  const links = document.querySelector('.nav-links');
+  if (links.style.display === 'flex') {
+    links.style.display = 'none';
+  } else {
+    links.style.cssText = 'display:flex;flex-direction:column;position:fixed;top:70px;left:0;right:0;background:rgba(10,22,40,0.98);padding:2rem;gap:1.5rem;z-index:999;border-bottom:1px solid rgba(201,162,39,0.3)';
+  }
+}
+</script>
+</body>
+</html>
